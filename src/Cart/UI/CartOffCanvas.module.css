@@ -1,0 +1,58 @@
+img {
+    width: 50px; /* Adjust the width to your preferred size */
+    height: auto; /* Allow the height to adjust proportionally */
+    border: 1px solid #dee2e6; /* Optional: Add a border or other styles */
+    border-radius: 0.25rem; /* Optional: Rounded corners */
+    padding: 0.25rem;
+}
+.list-group-title {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+.list-title,
+.list-action,
+.list-price {
+    width: 100%;
+    border: none !important;
+    border-bottom: 2px solid #000 !important; /* Customize the style, color, and width of the underline */
+    padding-bottom: 8px;
+    margin-bottom: 1rem;
+}
+.list-figure {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.list-image {
+    margin-left: -10px;
+    margin-right: 3px;
+}
+.list-action {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+.list-price {
+    margin-top: 1rem;
+    padding-left: 3.5rem;
+}
+.list-action input,
+.list-action button {
+    height: 50%;
+    text-align: center;
+}
+.list-action button {
+    background-color: #f75457;
+    border-color: #f75457;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+}
+
+.list-action input {
+    max-width: 2rem;
+    margin-right: 0.5rem;
+    margin-left: -25px;
+}

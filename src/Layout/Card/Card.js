@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import CartContext from "../../store/cart-context";
 
 const ProductCard = (props) => {
+    const CartCtx = useContext(CartContext);
     const { title, imageUrl, price } = props.product;
     const [isHovered, setIsHovered] = useState(false);
 
     const handleHover = () => {
         setIsHovered(!isHovered);
+    };
+    const addToCartHandler = () => {
+        CartCtx.addToCart(props.product);
     };
 
     return (
@@ -40,7 +45,9 @@ const ProductCard = (props) => {
                         alignItems: "center",
                     }}>
                     <Card.Text className='pt-3'>Price : ${price}</Card.Text>
-                    <Button variant='primary'>Add to cart</Button>
+                    <Button variant='primary' onClick={addToCartHandler}>
+                        Add to cart
+                    </Button>
                 </div>
             </Card.Body>
         </Card>

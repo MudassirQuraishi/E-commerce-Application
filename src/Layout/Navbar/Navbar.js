@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import CartContext from "../../store/cart-context";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Form from "react-bootstrap/Form";
@@ -6,7 +8,12 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import CartButton from "./CartButton";
 
-function BasicExample() {
+const NavbarComp = () => {
+    const CartCtx = useContext(CartContext);
+    const openCartHandler = () => {
+        CartCtx.openCart();
+    };
+
     return (
         <Navbar
             key='md'
@@ -42,7 +49,7 @@ function BasicExample() {
                             />
                             <Button variant='outline-success'>Search</Button>
                         </Form>
-                        <Nav.Item className='mt-1'>
+                        <Nav.Item className='mt-1' onClick={openCartHandler}>
                             <CartButton></CartButton>
                         </Nav.Item>
                     </Offcanvas.Body>
@@ -50,6 +57,6 @@ function BasicExample() {
             </Container>
         </Navbar>
     );
-}
+};
 
-export default BasicExample;
+export default NavbarComp;
