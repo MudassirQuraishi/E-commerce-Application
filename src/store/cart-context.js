@@ -16,7 +16,14 @@ export const CartProvider = (props) => {
         if (!isItemInCart) {
             setCartItems((prevItems) => [...prevItems, product]);
         } else {
-            alert("Product already in cart");
+            setCartItems((prevItems) => {
+                return prevItems.map((item) => {
+                    if (item.id === product.id) {
+                        return { ...item, quantity: item.quantity + 1 };
+                    }
+                    return item;
+                });
+            });
         }
     };
     const cartCloseHandler = () => {

@@ -12,7 +12,7 @@ const ProductCard = (props) => {
         setIsHovered(!isHovered);
     };
     const addToCartHandler = () => {
-        CartCtx.addToCart(props.product);
+        CartCtx.addToCart({ ...props.product, quantity: 1 });
     };
 
     return (
