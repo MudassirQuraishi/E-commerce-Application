@@ -7,6 +7,7 @@ import Button from "react-bootstrap/esm/Button";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import CartButton from "./CartButton";
+import { LinkContainer } from "react-router-bootstrap";
 
 const NavbarComp = () => {
     const CartCtx = useContext(CartContext);
@@ -36,9 +37,15 @@ const NavbarComp = () => {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav className='justify-content-end flex-grow-1 pe-3'>
-                            <Nav.Link href='/home'>Home</Nav.Link>
-                            <Nav.Link href='/store'>Store</Nav.Link>
-                            <Nav.Link href='/about'>About</Nav.Link>
+                            <LinkContainer to='/home'>
+                                <Nav.Link>Home</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to='/store'>
+                                <Nav.Link>Store</Nav.Link>
+                            </LinkContainer>
+                            <LinkContainer to='/about'>
+                                <Nav.Link>About</Nav.Link>
+                            </LinkContainer>
                         </Nav>
                         <Form className='d-flex'>
                             <Form.Control
