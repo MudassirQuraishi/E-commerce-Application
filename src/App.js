@@ -1,13 +1,28 @@
 import "./App.css";
-import React, { useContext } from "react";
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Footer from "./Layout/Footer/Footer";
 import NavbarComp from "./Layout/Navbar/Navbar";
-import MusicSection from "./components/MusicSection";
-import CartOffCanvas from "./Cart/UI/CartOffCanvas";
-import CartContext, { CartProvider } from "./store/cart-context";
+import { CartProvider } from "./store/cart-context";
+import HomePage from "./Pages/HomePage";
+import AboutPage from "./Pages/AboutPage";
+const router = createBrowserRouter([
+    {
+        path: "/home",
+        element: <HomePage />,
+    },
+    {
+        path: "/store",
+        element: <HomePage />,
+    },
+    {
+        path: "/about",
+        element: <AboutPage />,
+    },
+]);
 
 function App() {
-    const CartCtx = useContext(CartContext);
+    // const CartCtx = useContext(CartContext);
     return (
         <>
             <CartProvider>
@@ -15,16 +30,10 @@ function App() {
                     <NavbarComp></NavbarComp>
                     <h1>Welcome To Quraishi's</h1>
                 </header>
-
-                <main>
-                    {CartCtx.isOpen && <CartOffCanvas />}
-                    <MusicSection></MusicSection>
-                </main>
+                <RouterProvider router={router} />
             </CartProvider>
 
-            <footer>
-                <Footer></Footer>
-            </footer>
+            <Footer></Footer>
         </>
     );
 }
