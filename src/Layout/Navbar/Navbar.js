@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import CartContext from "../../store/cart-context";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -7,7 +8,6 @@ import Button from "react-bootstrap/esm/Button";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import CartButton from "./CartButton";
-import { LinkContainer } from "react-router-bootstrap";
 
 const NavbarComp = () => {
     const CartCtx = useContext(CartContext);
@@ -23,7 +23,9 @@ const NavbarComp = () => {
             data-bs-theme='dark'
             className=' mb-5 fixed-top'>
             <Container fluid>
-                <Navbar.Brand href='#'>Quraishi's Store</Navbar.Brand>
+                <Navbar.Brand as={Link} to='/'>
+                    Quraishi's Store
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-'md'`} />
                 <Navbar.Offcanvas
                     id={`offcanvasNavbar-expand-'md'`}
@@ -37,15 +39,18 @@ const NavbarComp = () => {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav className='justify-content-end flex-grow-1 pe-3'>
-                            <LinkContainer to='/home'>
-                                <Nav.Link>Home</Nav.Link>
-                            </LinkContainer>
-                            <LinkContainer to='/store'>
-                                <Nav.Link>Store</Nav.Link>
-                            </LinkContainer>
-                            <LinkContainer to='/about'>
-                                <Nav.Link>About</Nav.Link>
-                            </LinkContainer>
+                            <Nav.Link as={Link} to='/home'>
+                                Home
+                            </Nav.Link>
+                            <Nav.Link as={Link} to='/store'>
+                                Store
+                            </Nav.Link>
+                            <Nav.Link as={Link} to='/about'>
+                                About
+                            </Nav.Link>
+                            <Nav.Link as={Link} to='/contact-us'>
+                                Contact Us
+                            </Nav.Link>
                         </Nav>
                         <Form className='d-flex'>
                             <Form.Control

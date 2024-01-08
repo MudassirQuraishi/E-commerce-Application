@@ -13,17 +13,17 @@ const HomeSection = () => {
             area: "Anantapur",
         },
         {
-            id: "01",
+            id: "02",
             name: "Anantapur Store",
             area: "Anantapur",
         },
         {
-            id: "01",
+            id: "03",
             name: "Anantapur Store",
             area: "Anantapur",
         },
         {
-            id: "01",
+            id: "04",
             name: "Anantapur Store",
             area: "Anantapur",
         },

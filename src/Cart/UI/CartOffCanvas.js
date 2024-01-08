@@ -11,7 +11,7 @@ const CartOffCanvas = () => {
     const closeCartHandler = () => {
         cartCtx.closeCart();
     };
-    console.log(cartCtx.cartItems);
+    const updateQuantityHandler = () => {};
 
     const cartItems = cartCtx.cartItems.map((cartItem) => (
         <ListGroup
@@ -40,7 +40,10 @@ const CartOffCanvas = () => {
                 ${cartItem.price}
             </ListGroup.Item>
             <ListGroup.Item className={classes["list-action"]}>
-                <input value={cartItem.quantity} />
+                <input
+                    value={cartItem.quantity}
+                    onChange={updateQuantityHandler}
+                />
                 <button>Remove</button>
             </ListGroup.Item>
         </ListGroup>
