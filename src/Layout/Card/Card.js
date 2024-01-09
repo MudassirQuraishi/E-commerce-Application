@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import CartContext from "../../store/cart-context";
@@ -37,7 +38,9 @@ const ProductCard = (props) => {
                 />
             </div>
             <Card.Body>
-                <Card.Title>{title}</Card.Title>
+                <Card.Title>
+                    <Link to={`/products/${title}`}>{title}</Link>
+                </Card.Title>
                 <div
                     style={{
                         display: "flex",
